@@ -1,6 +1,5 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../../styles";
-
 import TodoForm from "../components/TodoForm";
 import Todos from "../components/Todos";
 import { useNavigation } from "@react-navigation/native";
