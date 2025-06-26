@@ -6,6 +6,11 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { Text } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
+//tab bottom
+const tab = createBottomTabNavigator;
+function tabGroup() {
+  return <tab.Navigator></tab.Navigator>;
+}
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export const PATHS = {
