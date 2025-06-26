@@ -27,10 +27,14 @@ const todosSlice = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
+    updateFilter: (state, action) => {
+      const filter = action.payload;
+      state.filter = filter;
+    },
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo, setFilter } =
+export const { addTodo, toggleTodo, deleteTodo, setFilter, updateFilter } =
   todosSlice.actions;
 
 export default todosSlice.reducer;
