@@ -2,8 +2,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "../../styles";
 import Feather from "@expo/vector-icons/Feather";
 import AntDesign from "@expo/vector-icons/AntDesign";
-
-const TodoItem = ({ todo, onDelete, onToggle }) => {
+import { toggleTodo, deleteTodo } from "../Redux/slices/todos.slice";
+import { useDispatch } from "react-redux";
+const TodoItem = ({ todo }) => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.todoItem}>
       <Text
@@ -18,11 +20,11 @@ const TodoItem = ({ todo, onDelete, onToggle }) => {
       </Text>
 
       <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-        <TouchableOpacity onPress={() => onDelete(todo.id)}>
+        <TouchableOpacity onPress={() => dispatch(deleteTodo(todo.id))}>
           <Feather name="trash" size={20} color="red" />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => onToggle(todo.id)}>
+        <TouchableOpacity onPress={() => dispatch(toggleTodo(todo.id))}>
           <AntDesign
             name={todo.completed ? "checkcircle" : "checkcircleo"}
             size={20}

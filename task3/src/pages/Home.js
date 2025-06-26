@@ -8,23 +8,6 @@ import { PATHS } from "../routes/Router";
 
 const Home = () => {
   const { navigate } = useNavigation();
-  const [todos, setTodos] = useState([]);
-
-  const handleAddTodo = (todo) => {
-    setTodos((prevTodos) => [...prevTodos, todo]);
-  };
-
-  const handleToggleTodo = (id) => {
-    const updated = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    );
-    setTodos(updated);
-  };
-
-  const handleDeleteTodo = (id) => {
-    const updated = todos.filter((todo) => todo.id !== id);
-    setTodos(updated);
-  };
 
   return (
     <View style={styles.container}>
@@ -32,7 +15,7 @@ const Home = () => {
         Todo App
       </Text>
 
-      <TodoForm onSubmit={handleAddTodo} />
+      <TodoForm />
 
       <View style={styles.dividerLine} />
 
@@ -54,13 +37,7 @@ const Home = () => {
         </TouchableOpacity>
       </View>
 
-      {todos.length > 0 && (
-        <Todos
-          todos={todos}
-          onToggle={handleToggleTodo}
-          onDelete={handleDeleteTodo}
-        />
-      )}
+      <Todos />
     </View>
   );
 };
